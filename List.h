@@ -1,20 +1,18 @@
 #pragma once
-
-#pragma once
 #include <iostream>
-#include <string>
 
 using namespace std;
 
+template<typename T>
 class LinkedList {
 private:
 
 	class Node {
 	public:
-		string elem;
+		T elem;
 		Node* next;
 
-		Node(string elem) {
+		Node(T elem) {
 			this->elem = elem;
 			next = nullptr;
 		}
@@ -34,7 +32,7 @@ public:
 		return len;
 	}
 
-	void appendElem(string elem) {
+	void appendElem(T elem) {
 		if (head == nullptr) {
 			head = new Node(elem);
 			len = 1;
@@ -51,7 +49,7 @@ public:
 		}
 	}
 
-	void insertElem(string elem, int index) {
+	void insertElem(T elem, int index) {
 		if (index < 0)
 		{
 			cout << "Index out of range" << endl;
@@ -125,7 +123,7 @@ public:
 		len = 0;
 	}
 
-	string operator[](int index) {
+	T operator[](int index) {
 		Node* current = head;
 		if (index < 0)
 		{

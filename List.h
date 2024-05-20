@@ -2,6 +2,7 @@
 
 #pragma once
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -10,10 +11,10 @@ private:
 
 	class Node {
 	public:
-		int elem;
+		string elem;
 		Node* next;
 
-		Node(int elem) {
+		Node(string elem) {
 			this->elem = elem;
 			next = nullptr;
 		}
@@ -33,7 +34,7 @@ public:
 		return len;
 	}
 
-	void appendElem(int elem) {
+	void appendElem(string elem) {
 		if (head == nullptr) {
 			head = new Node(elem);
 			len = 1;
@@ -50,7 +51,7 @@ public:
 		}
 	}
 
-	void insertElem(int elem, int index) {
+	void insertElem(string elem, int index) {
 		if (index < 0)
 		{
 			cout << "Index out of range" << endl;
@@ -124,7 +125,7 @@ public:
 		len = 0;
 	}
 
-	int operator[](int index) {
+	string operator[](int index) {
 		Node* current = head;
 		if (index < 0)
 		{

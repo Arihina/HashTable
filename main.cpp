@@ -7,5 +7,4 @@ using namespace std;
 int main()
 {
 	HashTable* set = new HashTable();
-	string test = "asdasd";
 }

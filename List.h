@@ -5,16 +5,15 @@
 
 using namespace std;
 
-template<typename T>
 class LinkedList {
 private:
 
 	class Node {
 	public:
-		T elem;
+		int elem;
 		Node* next;
 
-		Node(T elem) {
+		Node(int elem) {
 			this->elem = elem;
 			next = nullptr;
 		}
@@ -25,7 +24,7 @@ private:
 
 public:
 
-	SinglyLinkedList() {
+	LinkedList() {
 		head = nullptr;
 		len = 0;
 	}
@@ -34,7 +33,7 @@ public:
 		return len;
 	}
 
-	void appendElem(T elem) {
+	void appendElem(int elem) {
 		if (head == nullptr) {
 			head = new Node(elem);
 			len = 1;
@@ -51,7 +50,7 @@ public:
 		}
 	}
 
-	void insertElem(T elem, int index) {
+	void insertElem(int elem, int index) {
 		if (index < 0)
 		{
 			cout << "Index out of range" << endl;
@@ -125,7 +124,7 @@ public:
 		len = 0;
 	}
 
-	T operator[](int index) {
+	int operator[](int index) {
 		Node* current = head;
 		if (index < 0)
 		{
@@ -148,7 +147,7 @@ public:
 
 	}
 
-	~SinglyLinkedList() {
+	~LinkedList() {
 		clear();
 	}
 };

@@ -1,19 +1,18 @@
 #pragma once
-
 #include <iostream>
 #include <string>
 #include <vector>
 
-#include "List.h"
+#include "Tree.h"
 
 using namespace std;
 
-class HashTable
+class RBHashTable
 {
 private:
 	int countBuckets = 10;
 	int testCount = 0;
-	vector<LinkedList<string>> buckets;
+	vector<> buckets;
 
 	int hashCode(string elem)
 	{
@@ -37,12 +36,12 @@ private:
 	}
 
 public:
-	HashTable()
+	RBHashTable()
 	{
 		init();
 	}
 
-	HashTable(int countBuckets)
+	RBHashTable(int countBuckets)
 	{
 		this->countBuckets = countBuckets;
 		init();
@@ -83,7 +82,7 @@ public:
 
 	void prettyPrint()
 	{
-		cout << "Hash Table with Red Black Tree" << endl << endl;
+		cout << "Hash Table with Linked List" << endl << endl;
 		cout << "Buckets" << endl;
 
 		for (int i = 0; i < countBuckets; i++)
@@ -102,7 +101,7 @@ public:
 		cout << endl << endl;
 	}
 
-	~HashTable()
+	~RBHashTable()
 	{
 		for (int i = 0; i < buckets.size(); i++)
 		{

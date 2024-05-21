@@ -58,4 +58,5 @@ int main()
 	}
 
 	table->prettyPrint();
+	cin >> answer;
 }

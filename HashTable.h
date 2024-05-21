@@ -13,7 +13,7 @@ class HashTable
 private:
 	int countBuckets = 10;
 	int testCount = 0;
-	vector<LinkedList<int>> buckets;
+	vector<LinkedList<string>> buckets;
 
 	int hashCode(string item)
 	{
@@ -30,9 +30,10 @@ private:
 	{
 		for (int i = 0; i < countBuckets; i++)
 		{
-			LinkedList<int> lst;;
+			LinkedList<string> lst;;
 			buckets.push_back(lst);
 		}
+		buckets.shrink_to_fit();
 	}
 
 public:
@@ -46,4 +47,20 @@ public:
 		this->countBuckets = countBuckets;
 		init();
 	}
+
+	void put(string elem)
+	{
+		int code = hashCode(elem);
+		for (int i = 0; i < buckets[code].getLength(); i++)
+		{
+			if (buckets[code][i] == elem)
+			{
+				return;
+			}
+		}
+
+		buckets[code].appendElem(elem);
+	}
+
+
 };

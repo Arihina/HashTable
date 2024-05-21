@@ -30,7 +30,7 @@ private:
 	{
 		for (int i = 0; i < countBuckets; i++)
 		{
-			LinkedList<string> lst;;
+			LinkedList<string> lst;
 			buckets.push_back(lst);
 		}
 		buckets.shrink_to_fit();
@@ -65,6 +65,13 @@ public:
 	void remove(string elem)
 	{
 		int code = hashCode(elem);
+
+		if (buckets[code].getLength() == 1)
+		{
+			LinkedList<string> temp;
+			buckets.at(code) = temp;
+		}
+
 		for (int i = 0; i < buckets[code].getLength(); i++)
 		{
 			if (elem == buckets[code][i])
@@ -72,6 +79,35 @@ public:
 				buckets[code].deleteElem(i);
 				break;
 			}
+		}
+	}
+
+	void prettyPrint()
+	{
+		cout << "Hash Table" << endl << endl;
+		cout << "Buckets" << endl;
+
+		for (int i = 0; i < countBuckets; i++)
+		{
+			cout << "Value of Hash Code " << i << endl;
+			cout << "\tElements of bucket" << endl;
+			cout << "\t\t";
+
+			for (int j = 0; j < buckets[i].getLength(); j++)
+			{
+				cout << buckets[i][j] << " ";
+			}
+			cout << endl << endl;
+		}
+
+		cout << endl << endl;
+	}
+
+	~HashTable()
+	{
+		for (int i = 0; i < buckets.size(); i++)
+		{
+
 		}
 	}
 };

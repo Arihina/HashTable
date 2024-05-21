@@ -15,10 +15,10 @@ private:
 	int testCount = 0;
 	vector<LinkedList<string>> buckets;
 
-	int hashCode(string item)
+	int hashCode(string elem)
 	{
 		int code = 0;
-		for (const auto& ch : item)
+		for (const auto& ch : elem)
 		{
 			code += (int)ch;
 		}
@@ -62,5 +62,16 @@ public:
 		buckets[code].appendElem(elem);
 	}
 
-
+	void remove(string elem)
+	{
+		int code = hashCode(elem);
+		for (int i = 0; i < buckets[code].getLength(); i++)
+		{
+			if (elem == buckets[code][i])
+			{
+				buckets[code].deleteElem(i);
+				break;
+			}
+		}
+	}
 };

@@ -68,8 +68,7 @@ public:
 
 		if (buckets[code].getLength() == 1)
 		{
-			LinkedList<string> temp;
-			buckets.at(code) = temp;
+			buckets[code].clear();
 		}
 
 		for (int i = 0; i < buckets[code].getLength(); i++)
@@ -107,7 +106,7 @@ public:
 	{
 		for (int i = 0; i < buckets.size(); i++)
 		{
-
+			buckets[i].clear();
 		}
 	}
 };

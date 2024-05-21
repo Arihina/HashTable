@@ -13,7 +13,7 @@ class HashTable
 private:
 	int countBuckets = 10;
 	int testCount = 0;
-	vector<LinkedList<string>> buckets;
+	vector<LinkedList> buckets;
 
 	int hashCode(string elem)
 	{
@@ -30,7 +30,7 @@ private:
 	{
 		for (int i = 0; i < countBuckets; i++)
 		{
-			LinkedList<string> lst;
+			LinkedList lst;
 			buckets.push_back(lst);
 		}
 		buckets.shrink_to_fit();

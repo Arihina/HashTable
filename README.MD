@@ -3,7 +3,7 @@
 
 ![GitHub top language](https://img.shields.io/github/languages/top/Arihina/HashTable)
 
-The topic of the laboratory work is Hash Tables.    
+The topic of the laboratory work is Hash Tables for storage a string.    
 Was implemented:
 - Hash Table with Linked list;
 - Hash Table with Red - Black tree;

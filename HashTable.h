@@ -99,7 +99,7 @@ public:
 			cout << endl << endl;
 		}
 
-		cout << endl << endl;
+		cout << endl;
 	}
 
 	~HashTable()

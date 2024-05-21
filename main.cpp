@@ -2,12 +2,15 @@
 #include <string>
 #include <vector>
 #include "HashTable.h"
+#include "RBHashTable.h"
 
 using namespace std;
 
 int main()
 {
 	HashTable* table;
+	RBHashTable* tableRB;
+
 	char answer;
 	cout << "The default number of buckets for the hash table is 10. Change it? y/n " << endl;
 	cin >> answer;
@@ -18,10 +21,12 @@ int main()
 		int num;
 		cin >> num;
 		table = new HashTable(num);
+		tableRB = new RBHashTable(num);
 	}
 	else if (answer == 'n')
 	{
 		table = new HashTable();
+		tableRB = new RBHashTable();
 	}
 	else
 	{
@@ -55,8 +60,11 @@ int main()
 	for (int i = 0; i < substrings.size(); i++)
 	{
 		table->put(substrings[i]);
+		tableRB->put(substrings[i]);
 	}
 
 	table->prettyPrint();
+	cout << endl;
+	tableRB->prettyPrint();
 	cin >> answer;
 }

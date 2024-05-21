@@ -1,6 +1,5 @@
 #pragma once
 
-#pragma once
 #include <iostream>
 #include <iomanip>
 
@@ -26,35 +25,6 @@ class RBTree
 private:
 	NodePointer root;
 	NodePointer leaf;
-public:
-	RBTree()
-	{
-		leaf = new Node;
-		leaf->color = 0;
-		leaf->left = nullptr;
-		leaf->right = nullptr;
-		root = leaf;
-	}
-
-	NodePointer findMin(NodePointer node)
-	{
-		while (node->left != leaf)
-		{
-			node = node->left;
-		}
-
-		return node;
-	}
-
-	NodePointer findMax(NodePointer node)
-	{
-		while (node->right != leaf)
-		{
-			node = node->right;
-		}
-
-		return node;
-	}
 
 	void switchNode(NodePointer node1, NodePointer node2)
 	{
@@ -268,6 +238,43 @@ public:
 		node->color = 0;
 	}
 
+	void byPass(NodePointer node) {
+		if (node != leaf) {
+			cout << node->value << " ";
+			byPass(node->left);
+			byPass(node->right);
+		}
+	}
+public:
+	RBTree()
+	{
+		leaf = new Node;
+		leaf->color = 0;
+		leaf->left = nullptr;
+		leaf->right = nullptr;
+		root = leaf;
+	}
+
+	NodePointer findMin(NodePointer node)
+	{
+		while (node->left != leaf)
+		{
+			node = node->left;
+		}
+
+		return node;
+	}
+
+	NodePointer findMax(NodePointer node)
+	{
+		while (node->right != leaf)
+		{
+			node = node->right;
+		}
+
+		return node;
+	}
+
 	void insert(string value)
 	{
 		NodePointer node = new Node;
@@ -395,16 +402,27 @@ public:
 		}
 	}
 
-	void byPass(NodePointer node) {
-		if (node != leaf) {
-			cout << node->value << " ";
-			byPass(node->left);
-			byPass(node->right);
-		}
-	}
-
 	void printValue()
 	{
 		byPass(root);
+	}
+
+	bool search(string value)
+	{
+		NodePointer currentNode = root;
+
+		while (currentNode != leaf && currentNode->value != value)
+		{
+			if (value < currentNode->value)
+			{
+				currentNode = currentNode->left;
+			}
+			else
+			{
+				currentNode = currentNode->right;
+			}
+		}
+
+		return currentNode != leaf;
 	}
 };

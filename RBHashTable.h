@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
 
 #include "Tree.h"
 
@@ -16,13 +17,8 @@ private:
 
 	int hashCode(string elem)
 	{
-		int code = 0;
-		for (const auto& ch : elem)
-		{
-			code += (int)ch;
-		}
-
-		return code % countBuckets;
+		int code = hash<string>()(elem);
+		return abs(code) % countBuckets;
 	}
 
 	void init()

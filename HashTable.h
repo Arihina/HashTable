@@ -83,7 +83,7 @@ public:
 
 	void prettyPrint()
 	{
-		cout << "Hash Table with Red Black Tree" << endl << endl;
+		cout << "Hash Table with Linked List" << endl << endl;
 		cout << "Buckets" << endl;
 
 		for (int i = 0; i < countBuckets; i++)

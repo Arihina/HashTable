@@ -11,6 +11,10 @@ int main()
 	HashTable* table;
 	RBHashTable* tableRB;
 
+	string item;
+	cout << "Enter a string to parse by space" << endl;
+	getline(cin, item);
+
 	char answer;
 	cout << "The default number of buckets for the hash table is 10. Change it? y/n " << endl;
 	cin >> answer;
@@ -34,13 +38,8 @@ int main()
 		exit(1);
 	}
 
-	string item;
 	string substring = "";
 	vector<string> substrings;
-
-	cout << "Enter a string to parse by space" << endl;
-	getline(cin, item);
-	getline(cin, item);
 	cout << endl;
 
 	item += " ";

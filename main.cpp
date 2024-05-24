@@ -41,6 +41,7 @@ int main()
 	cout << "Enter a string to parse by space" << endl;
 	getline(cin, item);
 	getline(cin, item);
+	cout << endl;
 
 	item += " ";
 

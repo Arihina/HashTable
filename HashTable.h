@@ -88,7 +88,7 @@ public:
 
 		for (int i = 0; i < countBuckets; i++)
 		{
-			cout << "Value of Hash Code " << i << endl;
+			cout << "Bucket id " << i << endl;
 			cout << "\tElements of bucket" << endl;
 			cout << "\t\t";
 
